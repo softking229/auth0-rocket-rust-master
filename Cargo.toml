@@ -1,0 +1,46 @@
+[package]
+authors = ["Coleman McFarland <coleman.mcfarland@gmail.com>"]
+name = "auth0-rocket-rust-example"
+version = "0.2.0"
+edition = "2018"
+
+[dependencies]
+bincode = "1.1.4"
+chrono = "0.4.7"
+crypto-hash = "0.3.3"
+failure = "0.1.5"
+failure_derive = "0.1.5"
+openssl = "0.10.24"
+rand = "0.7.0"
+reqwest = "0.9.19"
+rocket_codegen = "0.4.0"
+serde = "1.0.98"
+serde_derive = "1.0.98"
+serde_json = "1.0.40"
+sled = "0.24.1"
+url = "2.1.0"
+
+[dependencies.rocket]
+version = "0.4.2"
+features = ["tls"]
+
+[dependencies.frank_jwt]
+optional = true
+version = "3.1.1"
+
+[dependencies.keyz]
+branch = "master"
+git = "https://github.com/anxiousmodernman/keyz"
+
+[dependencies.maud]
+features = ["rocket"]
+version = "0.20.0"
+
+[dependencies.x509-parser]
+branch = "master"
+git = "https://github.com/rusticata/x509-parser"
+
+[features]
+# Only the frank_jwt implementation works right now. 
+default = ["frank_jwt"]
+#ring-crypto = ["jsonwebtoken"]
